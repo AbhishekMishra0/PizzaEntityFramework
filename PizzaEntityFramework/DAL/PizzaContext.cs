@@ -12,23 +12,15 @@ namespace PizzaEntityFramework.DAL
         // 
         // If you wish to target a different database and/or database provider, modify the 'Model1' 
         // connection string in the application configuration file.
-        public PizzaContext()
-            : base("name=PizzaOrders")
+        public PizzaContext() : base("PizzaOrderDb") // alias name of the db  
         {
         }
-
-        // Add a DbSet for each entity type that you want to include in your model. For more information 
-        // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
-
-        // public virtual DbSet<MyEntity> MyEntities { get; set; }
+        //public PizzaContext() : base("name = test") // it will look for connection string named test in the configuration file and from there it'll will take the name of the db
+        //{
+        //}
         public DbSet<Product> Products { get; set; }
 
         public DbSet<Order> orders { get; set; }
     }
 
-    //public class MyEntity
-    //{
-    //    public int Id { get; set; }
-    //    public string Name { get; set; }
-    //}
 }
